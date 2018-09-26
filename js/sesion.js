@@ -2,12 +2,12 @@
 
 //Inicializar Firebase
   var config = {
-   apiKey: "AIzaSyBOylNl-Ka7T5yo5EWl2KMaIqXu4cuj4fg",
-    authDomain: "vue-test-e6acb.firebaseapp.com",
-    databaseURL: "https://vue-test-e6acb.firebaseio.com",
-    projectId: "vue-test-e6acb",
-    storageBucket: "vue-test-e6acb.appspot.com",
-    messagingSenderId: "920258140742"
+     apiKey: "AIzaSyBdqA5PBFxmvOhS9SzEUi6yjaaglC41mmg",
+    authDomain: "rev-1524.firebaseapp.com",
+    databaseURL: "https://rev-1524.firebaseio.com",
+    projectId: "rev-1524",
+    storageBucket: "rev-1524.appspot.com",
+    messagingSenderId: "222230256546"
   };
   firebase.initializeApp(config);
 
