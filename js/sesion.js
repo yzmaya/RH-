@@ -11,6 +11,20 @@
   };
   firebase.initializeApp(config);
 
+  var chicas = firebase.database().ref('confirmados/');
+
+
+chicas.on('child_added', function(data) {
+  var llave = data.key;
+  var nombre = data.val().cargo;
+  var curso = data.val().correo;
+  var correo = data.val().nombre;
+  var ver = data.val().display;
+ 
+  $('#lista').prepend("<tr style=display:" + ver +  ";><td>" +  nombre + "</td><td>" + curso + "</td><td>" + correo + "</td><td><input type='file' value='upload' id='"+ llave + "' accept='application/pdf' onclick=enableSending('" + llave + "')></td></tr>");
+});
+
+
   // Obtener elementos
   const btnLogout = document.getElementById('btnLogout');
 
