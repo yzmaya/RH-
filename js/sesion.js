@@ -11,17 +11,38 @@
   };
   firebase.initializeApp(config);
 
+  $(document).ready(function () {
+
+            (function ($) {
+
+                $('#filtrar').keyup(function () {
+
+                    var rex = new RegExp($(this).val(), 'i');
+                  
+                    $('.buscar tr').hide();
+                    $('.buscar tr').filter(function () {
+                        return rex.test($(this).text());
+                          
+                    }).show();
+   
+                });
+
+            }(jQuery));
+             
+
+        });
+
   var chicas = firebase.database().ref('confirmados/');
 
 
 chicas.on('child_added', function(data) {
-  var llave = data.key;
-  var nombre = data.val().cargo;
-  var curso = data.val().correo;
-  var correo = data.val().nombre;
-  var ver = data.val().display;
+ var llave = data.key;
+
+  var correo = data.val().correo;
+  var nombre = data.val().nombre;
+  var cargo = data.val().cargo;
  
-  $('#lista').prepend("<tr style=display:" + ver +  ";><td>" +  nombre + "</td><td>" + curso + "</td><td>" + correo + "</td><td><input type='file' value='upload' id='"+ llave + "' accept='application/pdf' onclick=enableSending('" + llave + "')></td></tr>");
+  $('#lista').prepend("<tr id='"+ llave + "'><td>" + nombre + "</td><td>" + correo + "</td><td>" + cargo + "</td></tr>");
 });
 
 
