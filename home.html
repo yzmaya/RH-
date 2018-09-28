@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bootstrap Example</title>
+  <title>Gestión de Usuarios</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
@@ -51,7 +51,7 @@
   <br><br>
   
   <br><br>
-  
+
 <input type="text" name="" id="filtrar" class="form-control" placeholder="Buscar...">                                                                                    
   <div class="table-responsive"> 
 
@@ -67,8 +67,77 @@
     </tbody>
   </table>
   </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Registro</h4>
+         
+        </div>
+        <div class="modal-body">
+
+          <table >
+            <tbody id="lista2"></tbody>
+          </table>
+          <form class="form-horizontal" action="/action_page.php">
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="email">Nombre:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="nameform" name="email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="pwd">Email:</label>
+              <div class="col-sm-10">          
+                <input type="text" class="form-control" id="nameform2"  name="pwd">
+              </div>
+            </div> 
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal" onclick="editar();">Modificar</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+
+
+
 </div>
 
 <script type="text/javascript" src="js/sesion.js"></script>
+<script type="text/javascript">
+  function enableSending(sstring){
+  
+
+  firebase.database().ref('/confirmados' + '/' + sstring).on('value', function(snapshot) {
+
+$('#nameform').val(snapshot.val().nombre);
+$('#nameform2').val(snapshot.val().correo);
+      
+})
+
+
+
+  function editar(sstring){
+console.log(sstring);
+};
+
+};
+
+
+
+
+
+</script>
 </body>
 </html>

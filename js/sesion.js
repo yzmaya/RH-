@@ -41,9 +41,11 @@ chicas.on('child_added', function(data) {
   var correo = data.val().correo;
   var nombre = data.val().nombre;
   var cargo = data.val().cargo;
- 
-  $('#lista').prepend("<tr id='"+ llave + "'><td>" + nombre + "</td><td>" + correo + "</td><td>" + cargo + "</td></tr>");
+
+ $('#lista').prepend("<tr data-toggle='modal' data-target='#myModal' id='" + llave + "' onclick=enableSending('" + llave + "')><td>" + nombre + "</td><td>" + correo + "</td><td>" + cargo + "</td></tr>");
+
 });
+
 
 
   // Obtener elementos
