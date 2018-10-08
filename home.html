@@ -59,8 +59,8 @@
     <thead>
       <tr>
         <th>Nombre</th>
-        <th>Correo Electrónico</th>  
-        <th>Puesto</th>    
+        <th>Puesto</th>  
+        <th>Horario</th>    
       </tr>
     </thead>
     <tbody id="lista" class="buscar"  style="cursor: pointer;">
@@ -119,10 +119,10 @@
   function enableSending(sstring){
   
 
-  firebase.database().ref('/confirmados' + '/' + sstring).on('value', function(snapshot) {
+  firebase.database().ref('/meta' + '/' + sstring).on('value', function(snapshot) {
 
-$('#nameform').val(snapshot.val().nombre);
-$('#nameform2').val(snapshot.val().correo);
+$('#nameform').val(snapshot.val().NOMBRE);
+$('#nameform2').val(snapshot.val().APELLIDO_PATERNO);
       
 })
 

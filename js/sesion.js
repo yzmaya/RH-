@@ -32,17 +32,19 @@
 
         });
 
-  var chicas = firebase.database().ref('confirmados/');
+  var chicas = firebase.database().ref('meta/');
 
 
 chicas.on('child_added', function(data) {
  var llave = data.key;
+  var nombre = data.val().NOMBRE;
+  var apaterno = data.val().APELLIDO_PATERNO;
+  var amaterno = data.val().APELLIDO_MATERNO;
+  var puesto = data.val().DENOMINACION;
+  var horario = data.val().HORARIO;
+  
 
-  var correo = data.val().correo;
-  var nombre = data.val().nombre;
-  var cargo = data.val().cargo;
-
- $('#lista').prepend("<tr data-toggle='modal' data-target='#myModal' id='" + llave + "' onclick=enableSending('" + llave + "')><td>" + nombre + "</td><td>" + correo + "</td><td>" + cargo + "</td></tr>");
+ $('#lista').prepend("<tr data-toggle='modal' data-target='#myModal' id='" + llave + "' onclick=enableSending('" + llave + "')><td>" + nombre + " " + apaterno + " " + amaterno   + "</td><td>" + puesto + "</td><td>" + horario + "</td></tr>");
 
 });
 
