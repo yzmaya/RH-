@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/printThis.js"></script>
   <style>
   body { 
       position: relative; 
@@ -52,7 +53,19 @@
   
   <br><br>
 
-<input type="text" name="" id="filtrar" class="form-control" placeholder="Buscar...">                                                                                    
+  <ul class="nav nav-pills">
+    <li class="active"><a data-toggle="pill" href="#home">Usuarios</a></li>
+    <li><a data-toggle="pill" href="#menu1">Menu 1</a></li>
+    <li><a data-toggle="pill" href="#menu2">Menu 2</a></li>
+    <li><a data-toggle="pill" href="#menu3">Menu 3</a></li>
+  </ul>
+  
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <!-- aqui empieza el tab 1-->
+      <br>
+      <input type="text" name="" id="filtrar" class="form-control" placeholder="Buscar...">   
+      <br>                                                                                 
   <div class="table-responsive"> 
 
   <table class="table table-hover" class="table-responsive" id="myTable">
@@ -84,6 +97,7 @@
           <table >
             <tbody id="lista2"></tbody>
           </table>
+          <br>
           <form class="form-horizontal" action="/action_page.php">
             <div class="form-group">
               <label class="control-label col-sm-2" for="email">Nombre:</label>
@@ -100,8 +114,9 @@
           </form>
         </div>
         <div class="modal-footer">
+      <!--    data-toggle="pill" -->
           <button type="button" class="btn btn-success" data-dismiss="modal" onclick="editar();">Modificar</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          <a href="#menu1" data-toggle="pill"><button type="button" class="btn btn-info" data-dismiss="modal">Forma Única</button></a>
         </div>
       </div>
       
@@ -109,13 +124,61 @@
   </div>
   
 
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <br><br>
+      <div id="imprime" align="center">
+        <!-- aqui empieza el encabezado -->
+          <div class="row">
+            <div class="col-sm-3" style="background-color:lavender; border: 0;" >
+              <img src="img/logo.png">
+            </div>
+            <div class="col-sm-6" style="background-color:lavenderblush;"><h4>Forma Única de Incidencias de Personal </h4>
+              <table class="" border="1">
+                <tr>
+                  <td colspan="3"> ____Fecha de Elaboración____</td>
+                </tr>
+                <tr align="center">
+                  <td>Día</td>
+                  <td>Mes</td>
+                  <td>Año</td>
+                </tr>
+                <tr align="center">
+                  <script>
+                  var f = new Date();
+                  document.write("<td>" + f.getDate() + "</td><td>" + (f.getMonth() +1) + "</td><td>" + f.getFullYear() + "</td>");
+                  </script> 
+                </tr>
 
+              </table>
 
+            </div>
+            <div class="col-sm-3" style="background-color:lavender;">Subsecretaría de Educación Media Superior.</div>
+          </div>
+
+          <!-- aca termina el encabezado -->
+      </div>
+     
+        <button id="print_btn" type="button">Imprimir</button>
+          
+    </div>
+  </div>
 
 </div>
 
 <script type="text/javascript" src="js/sesion.js"></script>
 <script type="text/javascript">
+
+   $(document).ready(function () {
+
+
+        $('#print_btn').click(function () {
+         
+          $('#imprime').printThis();
+        });
+      });
+
+
   function enableSending(sstring){
   
 
@@ -123,13 +186,15 @@
 
 $('#nameform').val(snapshot.val().NOMBRE);
 $('#nameform2').val(snapshot.val().APELLIDO_PATERNO);
+
+$('#uno').val(snapshot.val().NOMBRE);
       
 })
 
 
 
   function editar(sstring){
-console.log(sstring);
+alert(sstring);
 };
 
 };
