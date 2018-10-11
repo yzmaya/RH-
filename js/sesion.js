@@ -44,7 +44,7 @@ chicas.on('child_added', function(data) {
   var horario = data.val().HORARIO;
   
 
- $('#lista').prepend("<tr data-toggle='modal' data-target='#myModal' id='" + llave + "' onclick=enableSending('" + llave + "')><td>" + nombre + " " + apaterno + " " + amaterno   + "</td><td>" + puesto + "</td><td>" + horario + "</td></tr>");
+ $('#lista').prepend("<tr data-toggle='modal' data-target='#myModal' id='" + llave + "'  onclick=enableSending('" + llave + "')><td>" + nombre + " " + apaterno + " " + amaterno   + "</td><td>" + puesto + "</td><td>" + horario + "</td></tr>");
 
 });
 

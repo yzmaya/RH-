@@ -80,7 +80,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Registro</h4>
+          <h4 class="modal-title">Registro <p style="display: none;" id="keyon"></p></h4>
          
         </div>
         <div class="modal-body">
@@ -91,65 +91,81 @@
           <br>
           <form class="form-horizontal">
             <div class="form-group">
-              <label class="control-label col-sm-2" for="email">Nombre:</label>
+              <label class="control-label col-sm-2" for="email">A-Paterno:</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="nameform" name="email">
+                <input type="text" class="form-control" id="nameform" onkeyup="activa()">
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-sm-2" for="pwd">Email:</label>
+              <label class="control-label col-sm-2" for="pwd">A-Materno:</label>
               <div class="col-sm-10">          
-                <input type="text" class="form-control" id="nameform2"  name="pwd">
+                <input type="text" class="form-control" id="nameform2"  onkeyup="activa()">
               </div>
-            </div> 
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="pwd">Nombre(s):</label>
+              <div class="col-sm-10">          
+                <input type="text" class="form-control" id="nameform3"  onkeyup="activa()">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="pwd">RFC:</label>
+              <div class="col-sm-10">          
+                <input type="text" class="form-control" id="nameform4"  onkeyup="activa()">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="pwd">CURP:</label>
+              <div class="col-sm-10">          
+                <input type="text" class="form-control" id="nameform5"  onkeyup="activa()">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="pwd">ID:</label>
+              <div class="col-sm-10">          
+                <input type="text" class="form-control" id="nameform6"  onkeyup="activa()">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="pwd">Horario:</label>
+              <div class="col-sm-10">          
+                <input type="text" class="form-control" id="nameform7"  onkeyup="activa()">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="pwd">Adscripción:</label>
+              <div class="col-sm-10">          
+                <input type="text" class="form-control" id="nameform8"  onkeyup="activa()">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="pwd">Puesto:</label>
+              <div class="col-sm-10">          
+                <input type="text" class="form-control" id="nameform9"  onkeyup="activa()">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="pwd">Nombramiento:</label>
+              <div class="col-sm-10">          
+                <input type="text" class="form-control" id="nameform10"  onkeyup="activa()">
+              </div>
+            </div>   
           </form>
         </div>
         <div class="modal-footer">
       <!--    data-toggle="pill" -->
-          <button type="button" class="btn btn-success" data-dismiss="modal" onclick="editar();">Modificar</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal" id="modifica" disabled="" onclick="guarda();">Modificar</button>
           <button type="button" class="btn btn-info" data-dismiss="modal" href="#menu1" data-toggle="pill">Forma Única</button>
         </div>
       </div>
       
     </div>
   </div>
-  
 
     </div>
     <div id="menu1" class="tab-pane fade">
       <br><br>
       <div id="areaImprimir" align="center" class="container">
-        <!-- aqui empieza el encabezado -->
-
-        <!-- aguanyta ->
-          <div class="row">
-            <div class="col-sm-3">
-              <img src="img/logo.png">
-            </div>
-            <div class="col-sm-6"><h4>Forma Única de Incidencias de Personal </h4>
-              <table class="" border="1">
-                <tr>
-                  <td colspan="3"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fecha de Elaboración&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                </tr>
-                <tr align="center">
-                  <td>Día</td>
-                  <td>Mes</td>
-                  <td>Año</td>
-                </tr>
-                <tr align="center">
-                  <script>
-                  var f = new Date();
-                  document.write("<td>" + f.getDate() + "</td><td>" + (f.getMonth() +1) + "</td><td>" + f.getFullYear() + "</td>");
-                  </script> 
-                </tr>
-
-              </table>
-
-            </div>
-            <div class="col-sm-3">Subsecretaría de Educación Media Superior.</div>
-          </div>
--->
-          <!-- aca termina el encabezado -->
           <!-- datos generales -->
           <table class="table table-bordered centro">
             <tr>
@@ -367,6 +383,57 @@
 
 <script type="text/javascript" src="js/sesion.js"></script>
 <script type="text/javascript">
+
+
+function activa(){
+  $('#modifica').attr('disabled', false);
+}
+
+function guarda(){
+
+  var id = document.getElementById("keyon").innerHTML;
+  var campo1 = $('#nameform').val();
+  var campo2 = $('#nameform2').val();
+  var campo3 = $('#nameform3').val();
+  var campo4 = $('#nameform4').val();
+  var campo5 = $('#nameform5').val();
+  var campo6 = $('#nameform6').val();
+  var campo7 = $('#nameform7').val();
+  var campo8 = $('#nameform8').val();
+  var campo9 = $('#nameform9').val();
+  var campo10 = $('#nameform10').val();
+
+
+  console.log(id);
+  console.log(campo1);
+
+  var guardado = firebase.database().ref('/meta' + '/' + id);
+    //se agregan los datos
+   guardado.update({
+    APELLIDO_PATERNO: campo1,
+    APELLIDO_MATERNO: campo2,
+    NOMBRE: campo3,
+    RFC: campo4,
+    CURP: campo5,
+    ID: campo6,
+    HORARIO: campo7,
+    AEA_DE_ADSCRIPCION: campo8,
+    DENOMINACION: campo9,
+    TIPO_DE_NOMBRAMIENTO: campo10
+
+
+      
+  });
+
+
+
+};
+
+
+
+
+
+
   function printDiv(nombreDiv) {
      var contenido= document.getElementById(nombreDiv).innerHTML;
      var contenidoOriginal= document.body.innerHTML;
@@ -390,17 +457,21 @@
 
 
   function enableSending(sstring){
-  
+  var externo = sstring;
+  document.getElementById("keyon").innerHTML = externo;
 
   firebase.database().ref('/meta' + '/' + sstring).on('value', function(snapshot) {
 
-
-$('#nameform').val(snapshot.val().NOMBRE);
-$('#nameform2').val(snapshot.val().APELLIDO_PATERNO);
-
-
- 
-
+$('#nameform').val(snapshot.val().APELLIDO_PATERNO);
+$('#nameform2').val(snapshot.val().APELLIDO_MATERNO);
+$('#nameform3').val(snapshot.val().NOMBRE);
+$('#nameform4').val(snapshot.val().RFC);
+$('#nameform5').val(snapshot.val().CURP);
+$('#nameform6').val(snapshot.val().ID);
+$('#nameform7').val(snapshot.val().HORARIO);
+$('#nameform8').val(snapshot.val().AEA_DE_ADSCRIPCION);
+$('#nameform9').val(snapshot.val().DENOMINACION);
+$('#nameform10').val(snapshot.val().TIPO_DE_NOMBRAMIENTO);
 
 
 
@@ -433,6 +504,8 @@ document.getElementById("puesto").innerHTML = localStorage.getItem("iPuesto");
 
 localStorage.setItem("iTyoep", snapshot.val().TIPO_DE_NOMBRAMIENTO); 
 document.getElementById("type-nom").innerHTML = localStorage.getItem("iTyoep");
+
+
 
 
 
