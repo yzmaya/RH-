@@ -154,7 +154,8 @@
         </div>
         <div class="modal-footer">
       <!--    data-toggle="pill" -->
-          <button type="button" class="btn btn-success" data-dismiss="modal" id="modifica" disabled="" onclick="guarda();">Modificar</button>
+          <span id="notif" style="color: green; display: none;" >Cambio realizado exitosamente!</span>
+          <button type="button" class="btn btn-success" id="modifica" disabled="" onclick="guarda();">Modificar</button>
           <button type="button" class="btn btn-info" data-dismiss="modal" href="#menu1" data-toggle="pill">Forma Única</button>
         </div>
       </div>
@@ -403,9 +404,8 @@ function guarda(){
   var campo9 = $('#nameform9').val();
   var campo10 = $('#nameform10').val();
 
+$('#notif').show();
 
-  console.log(id);
-  console.log(campo1);
 
   var guardado = firebase.database().ref('/meta' + '/' + id);
     //se agregan los datos
@@ -420,6 +420,7 @@ function guarda(){
     AEA_DE_ADSCRIPCION: campo8,
     DENOMINACION: campo9,
     TIPO_DE_NOMBRAMIENTO: campo10
+
 
 
       
@@ -457,6 +458,7 @@ function guarda(){
 
 
   function enableSending(sstring){
+    $('#notif').hide();
   var externo = sstring;
   document.getElementById("keyon").innerHTML = externo;
 
