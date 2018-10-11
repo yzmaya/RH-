@@ -193,7 +193,7 @@
           <!-- datos generales -->
           <table class="table table-bordered centro">
             <tr>
-              <td><img src="img/logo.png"></td>
+              <td><img src="/work/models/sems/Resource/12940/1/images/logo.png"></td>
               <td align="center">
                 <strong>Forma Única de Incidencias de Personal </strong>
                 <table border="1">
@@ -405,7 +405,7 @@
 
 </div>
 
-<script type="text/javascript" src="js/sesion.js"></script>
+<script type="text/javascript" src="/work/models/sems/Resource/12940/1/images/sesion.js"></script>
 <script type="text/javascript">
 
 
@@ -454,7 +454,26 @@ $('#notif').show();
 };
 
 
+ $(document).ready(function () {
 
+            (function ($) {
+
+                $('#filtrar').keyup(function () {
+
+                    var rex = new RegExp($(this).val(), 'i');
+                  
+                    $('.buscar tr').hide();
+                    $('.buscar tr').filter(function () {
+                        return rex.test($(this).text());
+                          
+                    }).show();
+   
+                });
+
+            }(jQuery));
+             
+
+        });
 
 
 
