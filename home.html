@@ -8,17 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-
-  table.centro{
-    text-align: center;
-  }
-
-  table.menos{
-    font-size: 11px;
-  }
-
-  </style>
+  <link rel="stylesheet" type="text/css" href="css/tablas.css" media="all">
 
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -31,12 +21,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">GA-Revolución 1425</a>
+      <a class="navbar-brand nav nav-pills" data-toggle="pill" href="#home">Usuarios</a>
+      
+
     </div>
     <div>
       <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li><a href="#section1">Gestión del sistema</a></li>
+        <ul class="nav navbar-nav nav nav-pills">
+          <li><a data-toggle="pill" href="#menu1">Forma de Incidencia</a></li>
 
          
          
@@ -58,10 +50,6 @@
   
   <br><br>
 
-  <ul class="nav nav-pills">
-    <li class="active"><a data-toggle="pill" href="#home">Usuarios</a></li>
-    <li><a data-toggle="pill" href="#menu1">Forma de Incidencias</a></li>
-  </ul>
   
   <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
@@ -130,7 +118,7 @@
     </div>
     <div id="menu1" class="tab-pane fade">
       <br><br>
-      <div id="areaImprimir" align="center" class="container-fluid">
+      <div id="areaImprimir" align="center" class="container">
         <!-- aqui empieza el encabezado -->
 
         <!-- aguanyta ->
@@ -169,7 +157,7 @@
               <td align="center">
                 <strong>Forma Única de Incidencias de Personal </strong>
                 <table border="1">
-                <tr>
+                <tr class="color">
                   <td colspan="3"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fecha de Elaboración&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                 </tr>
                 <tr align="center">
@@ -237,7 +225,7 @@
            <!-- aqui termina la tabla de datos personales-->
            <!-- aqui empieza la tabla de checkboxes -->
           <table class="table table-bordered menos">
-            <tr>
+            <tr class="color">
               <td><strong>Turno Matutino</strong></td>
               <td><strong>Turno_Vespertino</strong></td>
               <td colspan="2"><strong>Motivos</strong></td>
@@ -290,7 +278,7 @@
                     <input type="radio" name="c-panelcheck">Comisión
                   </label><br>
                   <label class="radio-inline">
-                    <input type="radio" name="c-panelcheck">Cuidados Maternos*
+                    <input type="radio" name="c-panelcheck">Cuidados Maternos<strong style="color: red;" >*</strong> 
                   </label><br>
                   <label class="radio-inline">
                     <input type="radio" name="c-panelcheck">Personal
@@ -303,15 +291,15 @@
                     <input type="radio" name="c-panelcheck">Omisión
                   </label><br>
                   <label class="radio-inline">
-                    <input type="radio" name="c-panelcheck">Constancia Médica*
+                    <input type="radio" name="c-panelcheck">Constancia Médica<strong style="color: red;" >*</strong> 
                   </label>
               </td>
               <td>
                   <label class="radio-inline">
-                    <input type="radio" name="c-panelcheck">Licencia Médica*
+                    <input type="radio" name="c-panelcheck">Licencia Médica<strong style="color: red;" >*</strong> 
                   </label><br>
                   <label class="radio-inline">
-                    <input type="radio" name="c-panelcheck">Cursos de Capacitación*
+                    <input type="radio" name="c-panelcheck">Cursos de Capacitación<strong style="color: red;" >*</strong> 
                   </label>
                   <br>
                   <label class="radio-inline">
@@ -335,10 +323,10 @@
           <!-- aqui termina la tabla de los chekboxes-->
            <!-- aqui empieza la tabla de firmas -->
            <table class="table table-bordered menos">
-             <tr>
-               <td colspan="2">Días Económicos Otorgados Enero/Diciembre
-                <br>( ) Firma de Validación __________________
-                <br>(Exclusivo del área de Control de Asistencia)
+             <tr style="background-color: yellow;">
+               <td colspan="2" align="right" ><strong>Días Económicos Otorgados Enero/Diciembre
+                <br>( ) Firma de Validación</strong> ____________________
+                <p style="color: red;">(Exclusivo del área de Control de Asistencia)</p>
                </td>
                <td>
                  Fecha del último día Otorgado<br>
@@ -347,22 +335,30 @@
                </td>
              </tr>
              <tr>
-               <td style="width: 33.33%;">1</td>
-               <td style="width: 33.33%;">1</td>
-               <td style="width: 33.33%;">1</td>
+               <td style="width: 33.33%;"><br><br><br></td>
+               <td style="width: 33.33%;"><br><br><br></td>
+               <td style="width: 33.33%;"><br><br><br></td>
              </tr>
              <tr>
-               <td>Interesado</td>
-               <td>Autoriza</td>
-               <td>Vo. Bo.</td>
+               <th class="centro">Interesado</th>
+               <th class="centro">Autoriza</th>
+               <th class="centro">Vo. Bo.</th>
+             </tr>
+             <tr>
+               <td><strong style="color: red;" >* </strong> Favor de Integrar la documentación que compruebe el trámite solicitado.</td>
+               <td><br><br><br></td>
+               <td></td>
+             </tr>
+             <tr>
+               <td></td>
+               <td class="centro"><strong>SELLO Y FIRMA DE RECIBIDO<br>ÁREA DE RECURSOS HUMANOS</strong></td>
              </tr>
            </table>
 
 
       </div>
-     
-
-      <input type="button" onclick="printDiv('areaImprimir')" value="imprimir div" />
+      
+     &nbsp;&nbsp;&nbsp; <button type="button" class="btn btn-success" data-dismiss="modal" onclick="printDiv('areaImprimir')" value="imprimir div" >Imprimir forma</button>
           
     </div>
   </div>
